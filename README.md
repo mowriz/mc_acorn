@@ -24,6 +24,7 @@ The acorn texture is already included and ready to use!
 - Changes the name to "Acorn"
 - All properties (hunger, saturation, etc.) remain the same
 - All recipes and uses continue to work
+- Adds acorn drops from oak leaves (2.5% chance when breaking leaves)
 
 ## Minecraft Version:
 
@@ -38,8 +39,11 @@ acorn/
 │   ├── pack.mcmeta
 │   └── data/
 │       └── minecraft/
-│           └── item/
-│               └── golden_carrot.json
+│           ├── item/
+│           │   └── golden_carrot.json
+│           └── loot_table/
+│               └── blocks/
+│                   └── oak_leaves.json
 ├── acorn_resourcepack/
 │   ├── pack.mcmeta
 │   └── assets/
