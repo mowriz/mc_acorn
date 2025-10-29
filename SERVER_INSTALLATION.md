@@ -1,79 +1,94 @@
 # Server Installation Guide - Acorn Datapack
 
-Diese Anleitung zeigt, wie du das Acorn Datapack auf deinem Paper MC Server installierst, sodass **alle Spieler automatisch beim Login** die Eichel statt der goldenen Karotte sehen.
+This guide shows how to install the Acorn Datapack on your Paper MC Server so that **all players automatically** see the acorn instead of the golden carrot when they log in.
 
-## Schritt 1: Datapack auf Server installieren
+## Step 1: Install Datapack on Server
 
-1. Kopiere den Ordner `acorn_datapack/` in dein Server-Verzeichnis:
+1. Copy the `acorn_datapack/` folder to your server directory:
    ```
-   [dein-server]/world/datapacks/acorn_datapack/
+   [your-server]/world/datapacks/acorn_datapack/
    ```
 
-2. Führe auf dem Server den Befehl aus:
+2. Run the following command on the server:
    ```
    /reload
    ```
 
-## Schritt 2: Resource Pack automatisch verteilen
+## Step 2: Automatically Distribute Resource Pack
 
-Bearbeite die `server.properties` Datei auf deinem Server und füge folgende Zeilen hinzu:
+Edit the `server.properties` file on your server and add the following lines:
 
 ```properties
 # Resource Pack Download URL (GitHub Raw Link)
 resource-pack=https://github.com/mowriz/mc_acorn/raw/main/acorn_resourcepack.zip
 
-# Optional: SHA1 Hash zur Verifikation (kann leer bleiben)
+# Optional: SHA1 Hash for verification (can be left empty)
 resource-pack-sha1=dd2084629f19eac51db66e7681ee328615352ec0
 
-# Nachricht die Spieler beim Download sehen
-resource-pack-prompt=Lade Eichel Resource Pack... Bitte akzeptieren!
+# Message players see when downloading
+resource-pack-prompt=Loading Acorn Resource Pack... Please accept!
 
-# WICHTIG: Spieler MÜSSEN das Resource Pack akzeptieren
+# IMPORTANT: Players MUST accept the Resource Pack
 require-resource-pack=true
 ```
 
-**Wichtige Einstellungen:**
+**Important Settings:**
 
-- `require-resource-pack=true` - Spieler müssen das Pack akzeptieren, sonst werden sie gekickt
-- `require-resource-pack=false` - Spieler können ablehnen (dann sehen sie keine Eichel)
+- `require-resource-pack=true` - Players must accept the pack or they will be kicked
+- `require-resource-pack=false` - Players can decline (but won't see the acorn)
 
-## Schritt 3: Server neustarten
+## Step 3: Restart Server
 
-Starte deinen Paper MC Server neu, damit die Änderungen wirksam werden.
+Restart your Paper MC Server for the changes to take effect.
 
-## Was passiert jetzt?
+## What Happens Now?
 
-- Spieler verbinden sich zum Server
-- Automatisch startet der Download des Resource Packs
-- Spieler sehen eine Nachricht: "Lade Eichel Resource Pack... Bitte akzeptieren!"
-- Nach Akzeptieren sehen sie die Eichel statt der goldenen Karotte
-- Name wird zu "Eichel" (Deutsch) bzw. "Acorn" (Englisch)
+- Players connect to the server
+- The Resource Pack download starts automatically
+- Players see a message: "Loading Acorn Resource Pack... Please accept!"
+- After accepting, they see the acorn instead of the golden carrot
+- Name changes to "Acorn"
 
-## Fehlerbehebung
+## Troubleshooting
 
-### Spieler sehen keine Eichel
-- Resource Pack wurde abgelehnt → `require-resource-pack=true` setzen
-- Überprüfe, ob der Download-Link funktioniert
-- Server-Neustart durchführen
+### Players Don't See the Acorn
+- Resource Pack was declined → Set `require-resource-pack=true`
+- Check if the download link works
+- Restart the server
 
-### Download-Link funktioniert nicht
-- Stelle sicher, dass das GitHub Repository öffentlich ist
-- Nutze den **raw** Link: `https://github.com/mowriz/mc_acorn/raw/main/acorn_resourcepack.zip`
-- Teste den Link im Browser
+### Download Link Doesn't Work
+- Make sure the GitHub repository is public
+- Use the **raw** link: `https://github.com/mowriz/mc_acorn/raw/main/acorn_resourcepack.zip`
+- Test the link in your browser
 
-### Spieler werden gekickt
-- Das ist normal wenn `require-resource-pack=true` und sie ablehnen
-- Spieler müssen das Pack akzeptieren
+### Players Get Kicked
+- This is normal when `require-resource-pack=true` and they decline
+- Players must accept the pack
 
-## Alternative: Resource Pack lokal hosten
+## Alternative: Host Resource Pack Locally
 
-Wenn du einen eigenen Webserver hast, kannst du die `acorn_resourcepack.zip` auch dort hochladen:
+If you have your own web server, you can upload `acorn_resourcepack.zip` there:
 
 ```properties
-resource-pack=https://deine-website.de/acorn_resourcepack.zip
+resource-pack=https://your-website.com/acorn_resourcepack.zip
 ```
 
-Der Server muss direkten Download-Zugriff haben (kein Google Drive Viewer, etc.)!
+The server must have direct download access (no Google Drive viewer, etc.)!
+
+## Updating the Resource Pack
+
+After making changes to the resource pack, run:
+
+```bash
+./update_resourcepack.sh
+```
+
+This script will:
+- Recreate the ZIP file
+- Calculate the new SHA1 hash
+- Update this file with the new hash
+
+Then commit and push the changes to GitHub.
 
 ## GitHub Repository
 
@@ -82,4 +97,4 @@ Der Server muss direkten Download-Zugriff haben (kein Google Drive Viewer, etc.)
 
 ## Support
 
-Bei Problemen erstelle ein Issue auf GitHub: https://github.com/mowriz/mc_acorn/issues
+For issues, create an issue on GitHub: https://github.com/mowriz/mc_acorn/issues
