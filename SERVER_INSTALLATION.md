@@ -23,7 +23,7 @@ Bearbeite die `server.properties` Datei auf deinem Server und füge folgende Zei
 resource-pack=https://github.com/mowriz/mc_acorn/raw/main/acorn_resourcepack.zip
 
 # Optional: SHA1 Hash zur Verifikation (kann leer bleiben)
-resource-pack-sha1=
+resource-pack-sha1=dd2084629f19eac51db66e7681ee328615352ec0
 
 # Nachricht die Spieler beim Download sehen
 resource-pack-prompt=Lade Eichel Resource Pack... Bitte akzeptieren!
