@@ -1,0 +1,24 @@
+{
+  "name": "acorn",
+  "version": "1.0.0",
+  "description": "This package replaces the golden carrot with an acorn in Minecraft.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mowriz/mc_acorn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mowriz/mc_acorn/issues"
+  },
+  "homepage": "https://github.com/mowriz/mc_acorn#readme",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

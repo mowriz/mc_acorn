@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check if resource pack files have changed
+if git diff --cached --name-only | grep -q "acorn_resourcepack/"; then
+  echo "🌰 Resource pack changes detected, updating ZIP and SHA1..."
+  ./update_resourcepack.sh
+
+  # Add the updated files to the commit
+  git add acorn_resourcepack.zip acorn_resourcepack.sha1 SERVER_INSTALLATION.md
+
+  echo "✅ Resource pack updated and added to commit"
+fi
