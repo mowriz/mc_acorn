@@ -24,7 +24,7 @@ The acorn texture is already included and ready to use!
 - Changes the name to "Acorn"
 - All properties (hunger, saturation, etc.) remain the same
 - All recipes and uses continue to work
-- Adds acorn drops from oak leaves (2.5% chance when breaking leaves)
+- Adds acorn drops from oak leaves (2.5% base chance, increases with Fortune enchantment up to 12.5%)
 
 ## Minecraft Version:
 
