@@ -1,36 +1,36 @@
 # Acorn Datapack & Resource Pack
 
-Dieses Paket ersetzt die goldene Karotte durch eine Eichel in Minecraft.
+This package replaces the golden carrot with an acorn in Minecraft.
 
 ## Installation
 
 ### Datapack Installation:
-1. Kopiere den Ordner `acorn_datapack` in deinen Minecraft-Welt-Ordner unter `datapacks/`
-   - Pfad: `.minecraft/saves/[Weltname]/datapacks/`
-2. Lade die Welt neu oder nutze den Befehl `/reload`
+1. Copy the `acorn_datapack` folder to your Minecraft world folder under `datapacks/`
+   - Path: `.minecraft/saves/[WorldName]/datapacks/`
+2. Reload the world or use the command `/reload`
 
 ### Resource Pack Installation:
-1. Kopiere den Ordner `acorn_resourcepack` in deinen Minecraft Resource Packs Ordner
-   - Pfad: `.minecraft/resourcepacks/`
-2. Aktiviere das Resource Pack in den Minecraft-Einstellungen unter "Resource Packs"
+1. Copy the `acorn_resourcepack` folder to your Minecraft Resource Packs folder
+   - Path: `.minecraft/resourcepacks/`
+2. Activate the Resource Pack in Minecraft settings under "Resource Packs"
 
-## Fertig zum Installieren!
+## Ready to Install!
 
-Die Eichel-Textur ist bereits enthalten und einsatzbereit!
+The acorn texture is already included and ready to use!
 
-## Was das Paket macht:
+## What This Package Does:
 
-- Die goldene Karotte wird visuell durch eine Eichel ersetzt
-- Der Name wird zu "Eichel" (Deutsch) bzw. "Acorn" (Englisch) geändert
-- Alle Eigenschaften (Hunger, Sättigung, etc.) bleiben gleich
-- Alle Rezepte und Verwendungen funktionieren weiterhin
+- Visually replaces the golden carrot with an acorn
+- Changes the name to "Acorn"
+- All properties (hunger, saturation, etc.) remain the same
+- All recipes and uses continue to work
 
 ## Minecraft Version:
 
 - Datapack Format: 48 (Minecraft 1.21.2+)
 - Resource Pack Format: 34 (Minecraft 1.20.5 - 1.21.4)
 
-## Struktur:
+## Structure:
 
 ```
 acorn/
@@ -51,7 +51,10 @@ acorn/
 │           │   └── item/
 │           │       └── acorn.png
 │           └── lang/
-│               ├── de_de.json
 │               └── en_us.json
 └── README.md
 ```
+
+## Server Installation
+
+For automatic distribution to all players on a Paper MC server, see [SERVER_INSTALLATION.md](SERVER_INSTALLATION.md).
