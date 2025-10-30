@@ -41,7 +41,7 @@ acorn/
 │       └── minecraft/
 │           ├── item/
 │           │   └── golden_carrot.json
-│           └── loot_table/
+│           └── loot_tables/
 │               └── blocks/
 │                   └── oak_leaves.json
 ├── acorn_resourcepack/
