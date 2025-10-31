@@ -23,7 +23,7 @@ Edit the `server.properties` file on your server and add the following lines:
 resource-pack=https://github.com/mowriz/mc_acorn/raw/main/acorn_resourcepack.zip
 
 # Optional: SHA1 Hash for verification (can be left empty)
-resource-pack-sha1=b9b2ae602fe7c88f9ab2a0ecda43be2f7cdfc14e
+resource-pack-sha1=2ee2b6f31f7b474963c057fd113a6c263d0c961b
 
 # Message players see when downloading
 resource-pack-prompt=Loading Acorn Resource Pack... Please accept!
