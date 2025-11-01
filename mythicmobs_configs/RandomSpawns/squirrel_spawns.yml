@@ -1,0 +1,44 @@
+# Squirrel Random Spawn Configuration
+# Place this file in: plugins/MythicMobs/RandomSpawns/squirrel_spawns.yml
+
+# Squirrels spawn under oak trees in forest biomes
+SquirrelSpawner:
+  Mobname: Squirrel
+  Worlds: world
+  Biomes:
+    - FOREST
+    - DARK_FOREST
+    - BIRCH_FOREST
+    - FLOWER_FOREST
+    - WOODED_BADLANDS
+  Conditions:
+    # Only spawn near oak logs (within 5 blocks)
+    - blockinradius{types=OAK_LOG,OAK_WOOD;r=5;amount=1-999} true
+
+    # Prefer spawning on grass blocks
+    - blocktype{types=GRASS_BLOCK} true
+
+    # Light level 7+ (daylight preferred)
+    - lightlevel{l=>7} true
+
+    # Not in water
+    - notinwater true
+
+    # Y level between 60-120
+    - height{h=60-120} true
+
+  # Spawn settings
+  Priority: 1
+  Chance: 0.3
+  Interval: 600  # Check every 30 seconds (600 ticks)
+  MaxMobs: 3     # Max 3 squirrels per spawn point
+  MobLevel: 1
+  MobsPerSpawn: 1-2
+  Radius: 32     # Spawn within 32 blocks of players
+  RadiusY: 16
+  HeightFromPlayer: -16to16
+  UseChunkSpawning: true
+  ChunkRadius: 2
+
+  # Action bar message when squirrel spawns nearby (optional, can remove)
+  # ActionMessage: '&6A squirrel appears nearby!'

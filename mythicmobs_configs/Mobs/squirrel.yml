@@ -1,0 +1,74 @@
+# Squirrel Custom Mob Configuration
+# Place this file in: plugins/MythicMobs/Mobs/squirrel.yml
+
+Squirrel:
+  Type: RABBIT
+  Display: '&6Squirrel'
+  Health: 6
+  Damage: 0
+  Options:
+    MovementSpeed: 0.35
+    FollowRange: 8
+    Silent: false
+    PreventItemPickup: true
+    PreventOtherDrops: true
+
+  # Apply ModelEngine model
+  Skills:
+    # Apply custom squirrel model on spawn
+    - model{mid=squirrel} @self ~onSpawn
+
+    # Acorn hiding behavior (20% chance every 30-60 seconds)
+    - skill{s=HideAcorn} @self ~onTimer:1200 0.2
+
+    # Run away from players when they get too close
+    - skill{s=FleeFromPlayer} @PlayersInRadius{r=4} ~onTimer:20
+
+    # Jump/climb near oak logs (simulates climbing trees)
+    - effect:jump{velocity=0.5} @self ~onTimer:100 0.3
+    - effect:particles{p=block;blockData=oak_leaves;amount=5;speed=0.1} @self ~onTimer:100 0.1
+
+    # Idle animations
+    - skill{s=IdleBehavior} @self ~onTimer:60
+
+  # Drops (optional - squirrels don't drop items by default)
+  Drops:
+    - OAK_SAPLING 0-1 0.1
+
+# Skill: Hide Acorn
+# Squirrel "digs" and plants an acorn (golden carrot)
+HideAcorn:
+  Skills:
+    # Play digging animation
+    - effect:particles{p=block;blockData=dirt;amount=10;speed=0.1;hS=0.3;vS=0.1} @self
+    - effect:sound{s=block.grass.break;v=1;p=1.2} @self
+
+    # Wait a moment
+    - delay 20
+
+    # Drop golden carrot (acorn) at location
+    - dropitem{i=GOLDEN_CARROT;amount=1} @self
+
+    # Play success sound
+    - effect:sound{s=entity.chicken.egg;v=0.8;p=0.8} @self
+    - effect:particles{p=happy_villager;amount=3;speed=0.1} @self
+
+# Skill: Flee From Player
+# Squirrel runs away from nearby players
+FleeFromPlayer:
+  Skills:
+    - flee{speed=1.5;duration=60} @trigger
+    - effect:sound{s=entity.rabbit.ambient;v=0.6;p=1.5} @self
+
+# Skill: Idle Behavior
+# Random idle actions
+IdleBehavior:
+  Skills:
+    # Look around
+    - look @forward{angle=90;duration=20} 0.3
+
+    # Occasional chittering sound
+    - effect:sound{s=entity.rabbit.ambient;v=0.4;p=1.8} @self 0.2
+
+    # Sniff around
+    - effect:particles{p=cloud;amount=1;speed=0.01;hS=0.2} @forward{f=0.5;y=0.3} 0.15
